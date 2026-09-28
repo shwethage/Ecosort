@@ -14,7 +14,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const fetchItems = () => {
-    fetch('http://localhost:5000/api/items')
+    fetch('https://ecosort-backend-ha85.onrender.com/api/items')
       .then((res) => res.json())
       .then((data) => setItems(data))
       .catch((err) => console.error('Error fetching items:', err));
@@ -29,7 +29,7 @@ export default function Dashboard() {
     const newItem = { itemName, category, estimatedValue: Number(estimatedValue), disposalChannel };
 
     try {
-      const response = await fetch('http://localhost:5000/api/items', {
+      const response = await fetch('https://ecosort-backend-ha85.onrender.com/api/items', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newItem),
@@ -49,7 +49,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/items/${id}`, {
+      const response = await fetch(`https://ecosort-backend-ha85.onrender.com/api/items/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -62,7 +62,7 @@ export default function Dashboard() {
 
   const handleUpdate = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/items/${id}`, {
+      const response = await fetch(`https://ecosort-backend-ha85.onrender.com/api/items/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ itemName: editName }),

@@ -11,7 +11,7 @@ export default function AddItemForm({ onItemAdded }) {
     const newItem = { itemName, category, estimatedValue: Number(estimatedValue), disposalChannel };
 
     try {
-      const response = await fetch('http://localhost:5000/api/items', {
+      const response = await fetch('http://ecosort-backend-ha85.onrender.com/api/items', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newItem),
